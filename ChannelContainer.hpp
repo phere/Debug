@@ -1,5 +1,5 @@
 /*
- *  ChannelContainer.h
+ *  ChannelContainer.hpp
  *  Anathema
  *
  *  Created by Rowan James on 16/05/11.
