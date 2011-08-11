@@ -33,8 +33,10 @@ namespace phere {
 	}
 }
 
+#ifdef __OBJC__
 @class NSObject;
 std::ostream& operator<<(std::ostream& os, NSObject* pObjCObject);
+#endif // ifdef __OBJC__
 
 #import <boost/format.hpp>
 #ifdef INTERNAL
