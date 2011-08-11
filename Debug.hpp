@@ -1,5 +1,5 @@
 /*
- *  Debug.h
+ *  Debug.hpp
  *  Anathema
  *
  *  Created by Rowan James on 14/05/11.
@@ -33,10 +33,8 @@ namespace phere {
 	}
 }
 
-#ifdef __OBJC__
 @class NSObject;
-std::ostream& operator<<(std::ostream& os, const NSObject* pObjCObject);
-#endif // ifdef __OBJC__
+std::ostream& operator<<(std::ostream& os, NSObject* pObjCObject);
 
 #import <boost/format.hpp>
 #ifdef INTERNAL

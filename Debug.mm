@@ -9,10 +9,10 @@
 
 #include "Debug.hpp"
 
-#ifdef __OBJC__
+//#ifdef __OJBC__
 #import <Foundation/Foundation.h>
 
-std::ostream& operator<<(std::ostream& os, const NSObject* pObjCObject) {
+std::ostream& operator<<(std::ostream& os, NSObject* pObjCObject) {
 	if (pObjCObject == nil) {
 		os << "(nil Objective-C pointer)";
 	} else {
@@ -20,4 +20,5 @@ std::ostream& operator<<(std::ostream& os, const NSObject* pObjCObject) {
 	}
 	return os;
 }
-#endif // ifdef __OBJC__
+
+//#endif // ifdef __OBJC__
