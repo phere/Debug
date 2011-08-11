@@ -34,7 +34,6 @@ namespace phere {
 		
 		void ConsoleChannel::ShowMessage(const std::string& strMessage, phere::debug::Channel::EMessageLevel eLevel) const {
 			boost::unique_lock<boost::mutex> oWriteLock(s_WriteMutex);
-			std::cout << "s_MessageFormatters:" << sizeof(s_MessageFormatters) << std::endl;
 			assert(eLevel >= 0);
 			assert(eLevel < sizeof(s_MessageFormatters) / sizeof(s_MessageFormatters[0]));
 			std::cerr << *s_MessageFormatters[eLevel] % GetName() % strMessage << std::endl;
