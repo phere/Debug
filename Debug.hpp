@@ -49,8 +49,9 @@ std::ostream& operator<<(std::ostream& os, NSObject* pObjCObject);
 	}
 
 #define ShowDebugTraces(channel) \
-	phere::debug::ChannelContainer::GetChannel(#channel).SetThreshold(phere::debug::Channel::eTrace);
-
+	if (phere::debug::ChannelContainer::GetChannel(#channel).GetThreshold() > phere::debug::Channel::eTrace) { \
+		phere::debug::ChannelContainer::GetChannel(#channel).SetThreshold(phere::debug::Channel::eTrace); \
+	}
 #else
 
 #define DebugTrace(channel, format_str, format_args)
@@ -73,6 +74,8 @@ std::ostream& operator<<(std::ostream& os, NSObject* pObjCObject);
 																 str(boost::format(format_str) % format_args));
 
 #define ShowDebugMessages(channel) \
-	phere::debug::ChannelContainer::GetChannel(#channel).SetThreshold(phere::debug::Channel::eMessage);
+	if (phere::debug::ChannelContainer::GetChannel(#channel).GetThreshold() > phere::debug::Channel::eMessage) { \
+		phere::debug::ChannelContainer::GetChannel(#channel).SetThreshold(phere::debug::Channel::eMessage); \
+	}
 
 #define TypeName(x) phere::debug::PrettyTypeName<x>()
