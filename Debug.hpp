@@ -42,7 +42,7 @@ std::ostream& operator<<(std::ostream& os, NSObject* pObjCObject);
 #ifdef INTERNAL
 // DebugTrace elements are compiled out completely in release builds
 #define DebugTrace(channel, format_str, format_args) \
-	if (phere::debug::ChannelContainer::GetChannel(#channel).GetThreshold() >= \
+	if (phere::debug::ChannelContainer::GetChannel(#channel).GetThreshold() <= \
 		phere::debug::Channel::eTrace) { \
 		phere::debug::ChannelContainer::GetChannel(#channel).Message(phere::debug::Channel::eTrace, \
 																	 str(boost::format(format_str) % format_args)); \
@@ -59,7 +59,7 @@ std::ostream& operator<<(std::ostream& os, NSObject* pObjCObject);
 #endif
 
 #define DebugMessage(channel, format_str, format_args) \
-	if (phere::debug::ChannelContainer::GetChannel(#channel).GetThreshold() >= \
+	if (phere::debug::ChannelContainer::GetChannel(#channel).GetThreshold() <= \
 		phere::debug::Channel::eMessage) { \
 		phere::debug::ChannelContainer::GetChannel(#channel).Message(phere::debug::Channel::eMessage, \
 																	 str(boost::format(format_str) % format_args)); \
