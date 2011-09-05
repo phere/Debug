@@ -39,7 +39,7 @@ std::ostream& operator<<(std::ostream& os, NSObject* pObjCObject);
 #endif // ifdef __OBJC__
 
 #import <boost/format.hpp>
-#ifdef INTERNAL
+#ifdef PHERE_ENABLE_DEBUG_TRACES
 // DebugTrace elements are compiled out completely in release builds
 #define DebugTrace(channel, format_str, format_args) \
 	if (phere::debug::ChannelContainer::GetChannel(#channel).GetThreshold() <= \
