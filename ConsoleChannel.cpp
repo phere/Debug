@@ -12,7 +12,7 @@
 #import <iostream>
 #import <boost/thread/locks.hpp>
 #import <boost/format.hpp>
-#import <cassert>
+
 
 namespace {
 	boost::format* s_MessageFormatters[4] = {NULL};
