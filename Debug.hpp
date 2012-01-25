@@ -30,6 +30,11 @@ namespace phere {
 
 			return strResult;
 		}
+		
+		namespace detail {
+			bool IsDebugging();
+		}
+		bool IsDebugging(); // caches result of first call to detail::IsDebugging()
 	}
 }
 
