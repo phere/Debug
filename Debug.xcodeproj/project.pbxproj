@@ -13,22 +13,18 @@
 		4A86BC7D153AA2A1004024B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A86BC6B153AA2A1004024B7 /* Foundation.framework */; };
 		4A86BC80153AA2A1004024B7 /* libDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A86BC68153AA2A1004024B7 /* libDebug.a */; };
 		4A86BC86153AA2A1004024B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A86BC84153AA2A1004024B7 /* InfoPlist.strings */; };
-		4A86BC89153AA2A1004024B7 /* DebugTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC88153AA2A1004024B7 /* DebugTests.m */; };
+		4A86BC89153AA2A1004024B7 /* DebugTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC88153AA2A1004024B7 /* DebugTests.mm */; };
 		4A86BCA2153AA322004024B7 /* Assert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC93153AA322004024B7 /* Assert.cpp */; };
 		4A86BCA3153AA322004024B7 /* Assert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC94153AA322004024B7 /* Assert.hpp */; };
 		4A86BCA4153AA322004024B7 /* Break.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC95153AA322004024B7 /* Break.cpp */; };
 		4A86BCA5153AA322004024B7 /* Break.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC96153AA322004024B7 /* Break.hpp */; };
-		4A86BCA6153AA322004024B7 /* Channel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC97153AA322004024B7 /* Channel.cpp */; };
-		4A86BCA7153AA322004024B7 /* Channel.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC98153AA322004024B7 /* Channel.hpp */; };
-		4A86BCA8153AA322004024B7 /* ChannelContainer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC99153AA322004024B7 /* ChannelContainer.hpp */; };
-		4A86BCA9153AA322004024B7 /* ChannelContainer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC9A153AA322004024B7 /* ChannelContainer.mm */; };
-		4A86BCAA153AA322004024B7 /* ConsoleChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC9B153AA322004024B7 /* ConsoleChannel.cpp */; };
-		4A86BCAB153AA322004024B7 /* ConsoleChannel.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC9C153AA322004024B7 /* ConsoleChannel.hpp */; };
+		4A86BCA6153AA322004024B7 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC97153AA322004024B7 /* Logger.cpp */; };
+		4A86BCA7153AA322004024B7 /* Logger.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC98153AA322004024B7 /* Logger.hpp */; };
 		4A86BCAC153AA322004024B7 /* Debug-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC9D153AA322004024B7 /* Debug-Prefix.pch */; };
 		4A86BCAD153AA322004024B7 /* Debug.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC9E153AA322004024B7 /* Debug.hpp */; };
 		4A86BCAE153AA322004024B7 /* Debug.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC9F153AA322004024B7 /* Debug.mm */; };
-		4A86BCAF153AA322004024B7 /* NullChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BCA0153AA322004024B7 /* NullChannel.cpp */; };
-		4A86BCB0153AA322004024B7 /* NullChannel.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BCA1153AA322004024B7 /* NullChannel.hpp */; };
+		4A86BCB3153AB08C004024B7 /* ConsoleWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BCB1153AB08C004024B7 /* ConsoleWriter.cpp */; };
+		4A86BCB4153AB08C004024B7 /* ConsoleWriter.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BCB2153AB08C004024B7 /* ConsoleWriter.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,22 +47,18 @@
 		4A86BC83153AA2A1004024B7 /* DebugTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DebugTests-Info.plist"; sourceTree = "<group>"; };
 		4A86BC85153AA2A1004024B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4A86BC87153AA2A1004024B7 /* DebugTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DebugTests.h; sourceTree = "<group>"; };
-		4A86BC88153AA2A1004024B7 /* DebugTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DebugTests.m; sourceTree = "<group>"; };
+		4A86BC88153AA2A1004024B7 /* DebugTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DebugTests.mm; sourceTree = "<group>"; };
 		4A86BC93153AA322004024B7 /* Assert.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Assert.cpp; sourceTree = "<group>"; };
 		4A86BC94153AA322004024B7 /* Assert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Assert.hpp; sourceTree = "<group>"; };
 		4A86BC95153AA322004024B7 /* Break.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Break.cpp; sourceTree = "<group>"; };
 		4A86BC96153AA322004024B7 /* Break.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Break.hpp; sourceTree = "<group>"; };
-		4A86BC97153AA322004024B7 /* Channel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Channel.cpp; sourceTree = "<group>"; };
-		4A86BC98153AA322004024B7 /* Channel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Channel.hpp; sourceTree = "<group>"; };
-		4A86BC99153AA322004024B7 /* ChannelContainer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ChannelContainer.hpp; sourceTree = "<group>"; };
-		4A86BC9A153AA322004024B7 /* ChannelContainer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ChannelContainer.mm; sourceTree = "<group>"; };
-		4A86BC9B153AA322004024B7 /* ConsoleChannel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConsoleChannel.cpp; sourceTree = "<group>"; };
-		4A86BC9C153AA322004024B7 /* ConsoleChannel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ConsoleChannel.hpp; sourceTree = "<group>"; };
+		4A86BC97153AA322004024B7 /* Logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Logger.cpp; sourceTree = "<group>"; };
+		4A86BC98153AA322004024B7 /* Logger.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Logger.hpp; sourceTree = "<group>"; };
 		4A86BC9D153AA322004024B7 /* Debug-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Debug-Prefix.pch"; sourceTree = "<group>"; };
 		4A86BC9E153AA322004024B7 /* Debug.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Debug.hpp; sourceTree = "<group>"; };
 		4A86BC9F153AA322004024B7 /* Debug.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Debug.mm; sourceTree = "<group>"; };
-		4A86BCA0153AA322004024B7 /* NullChannel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NullChannel.cpp; sourceTree = "<group>"; };
-		4A86BCA1153AA322004024B7 /* NullChannel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NullChannel.hpp; sourceTree = "<group>"; };
+		4A86BCB1153AB08C004024B7 /* ConsoleWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConsoleWriter.cpp; sourceTree = "<group>"; };
+		4A86BCB2153AB08C004024B7 /* ConsoleWriter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ConsoleWriter.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				4A86BC87153AA2A1004024B7 /* DebugTests.h */,
-				4A86BC88153AA2A1004024B7 /* DebugTests.m */,
+				4A86BC88153AA2A1004024B7 /* DebugTests.mm */,
 				4A86BC82153AA2A1004024B7 /* Supporting Files */,
 			);
 			path = DebugTests;
@@ -164,17 +156,13 @@
 				4A86BC94153AA322004024B7 /* Assert.hpp */,
 				4A86BC95153AA322004024B7 /* Break.cpp */,
 				4A86BC96153AA322004024B7 /* Break.hpp */,
-				4A86BC97153AA322004024B7 /* Channel.cpp */,
-				4A86BC98153AA322004024B7 /* Channel.hpp */,
-				4A86BC99153AA322004024B7 /* ChannelContainer.hpp */,
-				4A86BC9A153AA322004024B7 /* ChannelContainer.mm */,
-				4A86BC9B153AA322004024B7 /* ConsoleChannel.cpp */,
-				4A86BC9C153AA322004024B7 /* ConsoleChannel.hpp */,
+				4A86BC97153AA322004024B7 /* Logger.cpp */,
+				4A86BC98153AA322004024B7 /* Logger.hpp */,
 				4A86BC9D153AA322004024B7 /* Debug-Prefix.pch */,
 				4A86BC9E153AA322004024B7 /* Debug.hpp */,
 				4A86BC9F153AA322004024B7 /* Debug.mm */,
-				4A86BCA0153AA322004024B7 /* NullChannel.cpp */,
-				4A86BCA1153AA322004024B7 /* NullChannel.hpp */,
+				4A86BCB1153AB08C004024B7 /* ConsoleWriter.cpp */,
+				4A86BCB2153AB08C004024B7 /* ConsoleWriter.hpp */,
 			);
 			name = Debug;
 			sourceTree = "<group>";
@@ -188,12 +176,10 @@
 			files = (
 				4A86BCA3153AA322004024B7 /* Assert.hpp in Headers */,
 				4A86BCA5153AA322004024B7 /* Break.hpp in Headers */,
-				4A86BCA7153AA322004024B7 /* Channel.hpp in Headers */,
-				4A86BCA8153AA322004024B7 /* ChannelContainer.hpp in Headers */,
-				4A86BCAB153AA322004024B7 /* ConsoleChannel.hpp in Headers */,
+				4A86BCA7153AA322004024B7 /* Logger.hpp in Headers */,
 				4A86BCAC153AA322004024B7 /* Debug-Prefix.pch in Headers */,
 				4A86BCAD153AA322004024B7 /* Debug.hpp in Headers */,
-				4A86BCB0153AA322004024B7 /* NullChannel.hpp in Headers */,
+				4A86BCB4153AB08C004024B7 /* ConsoleWriter.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,11 +283,9 @@
 			files = (
 				4A86BCA2153AA322004024B7 /* Assert.cpp in Sources */,
 				4A86BCA4153AA322004024B7 /* Break.cpp in Sources */,
-				4A86BCA6153AA322004024B7 /* Channel.cpp in Sources */,
-				4A86BCA9153AA322004024B7 /* ChannelContainer.mm in Sources */,
-				4A86BCAA153AA322004024B7 /* ConsoleChannel.cpp in Sources */,
+				4A86BCA6153AA322004024B7 /* Logger.cpp in Sources */,
 				4A86BCAE153AA322004024B7 /* Debug.mm in Sources */,
-				4A86BCAF153AA322004024B7 /* NullChannel.cpp in Sources */,
+				4A86BCB3153AB08C004024B7 /* ConsoleWriter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A86BC89153AA2A1004024B7 /* DebugTests.m in Sources */,
+				4A86BC89153AA2A1004024B7 /* DebugTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +338,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
 			};
@@ -371,6 +356,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

@@ -7,17 +7,12 @@
  *
  */
 
-#import "ChannelContainer.hpp"
-#import "ConsoleChannel.hpp"
-
 #import <string>
 #import <ostream>
 #import <cxxabi.h>
 
 namespace phere {
 	namespace debug {
-		typedef ConsoleChannel DefaultChannel_t;
-		
 		template<typename T>
 		std::string PrettyTypeName() {
 			char* pszName;
@@ -37,50 +32,5 @@ namespace phere {
 		bool IsDebugging(); // caches result of first call to detail::IsDebugging()
 	}
 }
-
-#ifdef __OBJC__
-@class NSObject;
-std::ostream& operator<<(std::ostream& os, NSObject* pObjCObject);
-#endif // ifdef __OBJC__
-
-#import <boost/format.hpp>
-#ifdef PHERE_ENABLE_DEBUG_TRACES
-// DebugTrace elements are compiled out completely in release builds
-#define DebugTrace(channel, format_str, format_args) \
-	if (phere::debug::ChannelContainer::GetChannel(#channel).GetThreshold() <= \
-		phere::debug::Channel::eTrace) { \
-		phere::debug::ChannelContainer::GetChannel(#channel).Message(phere::debug::Channel::eTrace, \
-																	 str(boost::format(format_str) % format_args)); \
-	}
-
-#define ShowDebugTraces(channel) \
-	if (phere::debug::ChannelContainer::GetChannel(#channel).GetThreshold() > phere::debug::Channel::eTrace) { \
-		phere::debug::ChannelContainer::GetChannel(#channel).SetThreshold(phere::debug::Channel::eTrace); \
-	}
-#else
-
-#define DebugTrace(channel, format_str, format_args)
-#define ShowDebugTraces(channel)
-
-#endif
-
-#define DebugMessage(channel, format_str, format_args) \
-	if (phere::debug::ChannelContainer::GetChannel(#channel).GetThreshold() <= \
-		phere::debug::Channel::eMessage) { \
-		phere::debug::ChannelContainer::GetChannel(#channel).Message(phere::debug::Channel::eMessage, \
-																	 str(boost::format(format_str) % format_args)); \
-	}
-
-#define DebugWarning(channel, format_str, format_args) \
-	phere::debug::ChannelContainer::GetChannel(#channel).Message(phere::debug::Channel::eWarning, \
-																 str(boost::format(format_str) % format_args));
-#define DebugError(channel, format_str, format_args) \
-	phere::debug::ChannelContainer::GetChannel(#channel).Message(phere::debug::Channel::eError, \
-																 str(boost::format(format_str) % format_args));
-
-#define ShowDebugMessages(channel) \
-	if (phere::debug::ChannelContainer::GetChannel(#channel).GetThreshold() > phere::debug::Channel::eMessage) { \
-		phere::debug::ChannelContainer::GetChannel(#channel).SetThreshold(phere::debug::Channel::eMessage); \
-	}
 
 #define TypeName(x) phere::debug::PrettyTypeName<x>()

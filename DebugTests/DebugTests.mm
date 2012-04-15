@@ -8,6 +8,11 @@
 
 #import "DebugTests.h"
 
+#import "Logger.hpp"
+#import "ConsoleWriter.hpp"
+
+DefineLogger(DebugTests)
+
 @implementation DebugTests
 
 - (void)setUp
@@ -26,7 +31,13 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in DebugTests");
+	std::string message(phere::debug::Formatter::Format("%1%", "message"));
+	std::string expected("message");
+	/*STAssertEquals([NSString stringWithUTF8String:expected.c_str()],
+				   [NSString stringWithUTF8String:message.c_str()],
+				   @"simple message format");*/
+	
+	logger.Error("whut?");
 }
 
 @end

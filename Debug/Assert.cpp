@@ -14,16 +14,20 @@
 // system and library headers
 #import "Break.hpp"
 #import "Debug.hpp"
+#import "Logger.hpp"
+#import "ConsoleWriter.hpp"
 
 //-----------------------------------------------------------------------------
 // static code and helpers
+DefineLogger(ASSERT_FAILED);
+
 namespace boost {
 	void assertion_failed(char const*	expr,
 						  char const*	function,
 						  char const*	file,
 						  long 			line)
 	{
-		DebugError(ASSERT_FAILED, "%1%:%2% %3% %4%", file % line % function % expr);
+		logger.Error("%1%:%2% %3% %4%", file, line, function, expr);
 		DebugBreak();
 	}
 	void assertion_failed_msg(char const*	expr,
@@ -32,7 +36,7 @@ namespace boost {
 							  char const*	file,
 							  long 			line)
 	{
-		DebugError(ASSERT_FAILED, "%1%:%2% %3% %4% \"%5%\"", file % line % function % expr % msg);
+		logger.Error("%1%:%2% %3% %4% \"%5%\"", file, line, function, expr, msg);
 		DebugBreak();
 	}
 }
