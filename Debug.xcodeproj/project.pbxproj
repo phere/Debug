@@ -18,11 +18,11 @@
 		4A86BCA3153AA322004024B7 /* Assert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC94153AA322004024B7 /* Assert.hpp */; };
 		4A86BCA4153AA322004024B7 /* Break.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC95153AA322004024B7 /* Break.cpp */; };
 		4A86BCA5153AA322004024B7 /* Break.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC96153AA322004024B7 /* Break.hpp */; };
-		4A86BCA6153AA322004024B7 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC97153AA322004024B7 /* Logger.cpp */; };
+		4A86BCA6153AA322004024B7 /* Logger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC97153AA322004024B7 /* Logger.mm */; };
 		4A86BCA7153AA322004024B7 /* Logger.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC98153AA322004024B7 /* Logger.hpp */; };
 		4A86BCAC153AA322004024B7 /* Debug-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC9D153AA322004024B7 /* Debug-Prefix.pch */; };
 		4A86BCAD153AA322004024B7 /* Debug.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC9E153AA322004024B7 /* Debug.hpp */; };
-		4A86BCAE153AA322004024B7 /* Debug.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC9F153AA322004024B7 /* Debug.mm */; };
+		4A86BCAE153AA322004024B7 /* Debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC9F153AA322004024B7 /* Debug.cpp */; };
 		4A86BCB3153AB08C004024B7 /* ConsoleWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BCB1153AB08C004024B7 /* ConsoleWriter.cpp */; };
 		4A86BCB4153AB08C004024B7 /* ConsoleWriter.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BCB2153AB08C004024B7 /* ConsoleWriter.hpp */; };
 /* End PBXBuildFile section */
@@ -52,11 +52,11 @@
 		4A86BC94153AA322004024B7 /* Assert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Assert.hpp; sourceTree = "<group>"; };
 		4A86BC95153AA322004024B7 /* Break.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Break.cpp; sourceTree = "<group>"; };
 		4A86BC96153AA322004024B7 /* Break.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Break.hpp; sourceTree = "<group>"; };
-		4A86BC97153AA322004024B7 /* Logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Logger.cpp; sourceTree = "<group>"; };
+		4A86BC97153AA322004024B7 /* Logger.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Logger.mm; sourceTree = "<group>"; };
 		4A86BC98153AA322004024B7 /* Logger.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Logger.hpp; sourceTree = "<group>"; };
 		4A86BC9D153AA322004024B7 /* Debug-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Debug-Prefix.pch"; sourceTree = "<group>"; };
 		4A86BC9E153AA322004024B7 /* Debug.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Debug.hpp; sourceTree = "<group>"; };
-		4A86BC9F153AA322004024B7 /* Debug.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Debug.mm; sourceTree = "<group>"; };
+		4A86BC9F153AA322004024B7 /* Debug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Debug.cpp; sourceTree = "<group>"; };
 		4A86BCB1153AB08C004024B7 /* ConsoleWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConsoleWriter.cpp; sourceTree = "<group>"; };
 		4A86BCB2153AB08C004024B7 /* ConsoleWriter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ConsoleWriter.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,11 +156,11 @@
 				4A86BC94153AA322004024B7 /* Assert.hpp */,
 				4A86BC95153AA322004024B7 /* Break.cpp */,
 				4A86BC96153AA322004024B7 /* Break.hpp */,
-				4A86BC97153AA322004024B7 /* Logger.cpp */,
+				4A86BC97153AA322004024B7 /* Logger.mm */,
 				4A86BC98153AA322004024B7 /* Logger.hpp */,
 				4A86BC9D153AA322004024B7 /* Debug-Prefix.pch */,
 				4A86BC9E153AA322004024B7 /* Debug.hpp */,
-				4A86BC9F153AA322004024B7 /* Debug.mm */,
+				4A86BC9F153AA322004024B7 /* Debug.cpp */,
 				4A86BCB1153AB08C004024B7 /* ConsoleWriter.cpp */,
 				4A86BCB2153AB08C004024B7 /* ConsoleWriter.hpp */,
 			);
@@ -283,8 +283,8 @@
 			files = (
 				4A86BCA2153AA322004024B7 /* Assert.cpp in Sources */,
 				4A86BCA4153AA322004024B7 /* Break.cpp in Sources */,
-				4A86BCA6153AA322004024B7 /* Logger.cpp in Sources */,
-				4A86BCAE153AA322004024B7 /* Debug.mm in Sources */,
+				4A86BCA6153AA322004024B7 /* Logger.mm in Sources */,
+				4A86BCAE153AA322004024B7 /* Debug.cpp in Sources */,
 				4A86BCB3153AB08C004024B7 /* ConsoleWriter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +436,7 @@
 				4A86BC8E153AA2A1004024B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A86BC8F153AA2A1004024B7 /* Build configuration list for PBXNativeTarget "DebugTests" */ = {
 			isa = XCConfigurationList;
@@ -444,6 +445,7 @@
 				4A86BC91153AA2A1004024B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

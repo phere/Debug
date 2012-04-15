@@ -32,17 +32,3 @@ namespace phere {
 		}
 	}
 }
-
-//#ifdef __OJBC__
-#import <Foundation/Foundation.h>
-
-std::ostream& operator<<(std::ostream& os, NSObject* pObjCObject) {
-	if (pObjCObject == nil) {
-		os << "(nil Objective-C pointer)";
-	} else {
-		os << [[pObjCObject description] UTF8String];
-	}
-	return os;
-}
-
-//#endif // ifdef __OBJC__

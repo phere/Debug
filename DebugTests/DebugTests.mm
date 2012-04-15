@@ -37,7 +37,11 @@ DefineLogger(DebugTests)
 				   [NSString stringWithUTF8String:message.c_str()],
 				   @"simple message format");*/
 	
-	logger.Error("whut?");
+	logger.Error("no parameters");
+	logger.Warning("%1% parameter", 1);
+	logger.Warning("%1% parameter", "one");
+	logger.Warning("%1% parameter", std::string("one"));
+	logger.Warning("%1% %2%", 2, @"parameters");
 }
 
 @end

@@ -12,6 +12,11 @@
 #import <boost/smart_ptr/shared_ptr.hpp>
 #import <boost/format.hpp>
 
+#ifdef __OBJC__
+@class NSObject;
+std::ostream& operator<<(std::ostream& os, NSObject* pObjCObject);
+#endif // ifdef __OBJC__
+
 namespace phere {
 	namespace debug {
 		struct MessageLevel
@@ -24,6 +29,12 @@ namespace phere {
 			typedef MessageLevel_type< 0> Message;
 			typedef MessageLevel_type< 1> Warning;
 			typedef MessageLevel_type< 2> Error;
+
+			// maximum possible level, the threshold for null loggers
+			struct MAX
+			{
+				static const int value = INT_MAX;
+			};
 		};
 		
 		struct ChannelWriter
@@ -135,9 +146,8 @@ namespace phere {
 	}
 }
 
-/*
-#define DefineLogger(logger_name) \
+#define DefineNullLogger(logger_name) \
 namespace { \
-struct logger_name##_tag{}; \
-phere::debug::Logger< > logger(#logger_name);\
-}*/
+	struct logger_name##_tag{}; \
+	phere::debug::Logger< phere::debug::ChannelWriter, phere::debug::MessageLevel::MAX > logger(#logger_name); \
+}
