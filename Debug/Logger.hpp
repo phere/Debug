@@ -10,6 +10,7 @@
 #import <string>
 #import <iostream>
 #import <boost/noncopyable.hpp>
+#import <boost/move/move.hpp>
 #import <boost/smart_ptr/shared_ptr.hpp>
 #import <boost/format.hpp>
 #import <boost/exception/diagnostic_information.hpp>
@@ -54,26 +55,26 @@ namespace phere {
 				{} // no args, no-op.
 				
 				template <typename Formatter, typename FirstArg>
-				static void ApplyArgs(Formatter& formatter, FirstArg firstArg)
+				static void ApplyArgs(Formatter& formatter, BOOST_FWD_REF(FirstArg) firstArg)
 				{
 					formatter % firstArg;
 				}
 
 				template <typename Formatter, typename FirstArg, typename ... OtherArgs>
-				static void ApplyArgs(Formatter& formatter, FirstArg firstArg, OtherArgs ... otherArgs)
+				static void ApplyArgs(Formatter& formatter, BOOST_FWD_REF(FirstArg) firstArg, BOOST_FWD_REF(OtherArgs) ... otherArgs)
 				{
 					formatter % firstArg;
-					ApplyArgs(formatter, otherArgs...);
+					ApplyArgs(formatter, boost::forward<OtherArgs>(otherArgs)...);
 				}
 			};
 		public:
-			template < typename ... Args >
-			static std::string Format(std::string messageFormat, Args ... args)
+			template <typename FormatType, typename ... Args>
+			static std::string Format(BOOST_FWD_REF(FormatType) messageFormat, BOOST_FWD_REF(Args) ... args)
 			{
 				try
 				{
-					boost::format formatter(messageFormat);
-					detail::ApplyArgs(formatter, args...);
+					boost::format formatter(boost::forward<FormatType>(messageFormat));
+					detail::ApplyArgs(formatter, boost::forward<Args>(args)...);
 					return str(formatter);
 				}
 				catch (boost::io::format_error& ex)
@@ -109,28 +110,28 @@ namespace phere {
 				messagePrefix = messagePrefix + ": ";
 			}
 			
-			template <typename ... Args>
-			void Traces(std::string messageFormat, Args ... args)
+			template <typename FormatType, typename ... Args>
+			void Traces(BOOST_FWD_REF(FormatType) messageFormat, Args ... args)
 			{
-				Log<MessageLevel::Trace>(messageFormat, args...);
+				Log<MessageLevel::Trace>(boost::forward<FormatType>(messageFormat), boost::forward<Args>(args)...);
 			}
 			
-			template <typename ... Args>
-			void Message(std::string messageFormat, Args ... args)
+			template <typename FormatType, typename ... Args>
+			void Message(BOOST_FWD_REF(FormatType) messageFormat, Args ... args)
 			{
-				Log<MessageLevel::Message>(messageFormat, args...);
+				Log<MessageLevel::Message>(boost::forward<FormatType>(messageFormat), boost::forward<Args>(args)...);
 			}
 			
-			template <typename ... Args>
-			void Warning(std::string messageFormat, Args ... args)
+			template <typename FormatType, typename ... Args>
+			void Warning(BOOST_FWD_REF(FormatType) messageFormat, Args ... args)
 			{
-				Log<MessageLevel::Warning>(messageFormat, args...);
+				Log<MessageLevel::Warning>(boost::forward<FormatType>(messageFormat), boost::forward<Args>(args)...);
 			}
 			
-			template <typename ... Args>
-			void Error(std::string messageFormat, Args ... args)
+			template <typename FormatType, typename ... Args>
+			void Error(BOOST_FWD_REF(FormatType) messageFormat, Args ... args)
 			{
-				Log<MessageLevel::Error>(messageFormat, args...);
+				Log<MessageLevel::Error>(boost::forward<FormatType>(messageFormat), boost::forward<Args>(args)...);
 			}
 			
 		private:
@@ -142,12 +143,13 @@ namespace phere {
 			
 			template
 			< typename Level
+			, typename FormatType
 			, typename ... Args >
-			void Log(std::string messageFormat, Args ... args)
+			void Log(BOOST_FWD_REF(FormatType) messageFormat, Args ... args)
 			{
 				if (ShouldShowLevel<Level>())
 				{
-					std::string message(Formatter::Format(messageFormat, args...));
+					std::string message(Formatter::Format(boost::forward<FormatType>(messageFormat), boost::forward<Args>(args)...));
 					Writer::template write<Level>(messagePrefix + message);
 				}
 			}
