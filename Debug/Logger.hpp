@@ -8,9 +8,11 @@
  */
 
 #import <string>
+#import <iostream>
 #import <boost/noncopyable.hpp>
 #import <boost/smart_ptr/shared_ptr.hpp>
 #import <boost/format.hpp>
+#import <boost/exception/diagnostic_information.hpp>
 
 #ifdef __OBJC__
 @class NSObject;
@@ -66,11 +68,20 @@ namespace phere {
 			};
 		public:
 			template < typename ... Args >
-			static std::string Format(const char* messageFormat, Args ... args)
+			static std::string Format(std::string messageFormat, Args ... args)
 			{
-				boost::format formatter(messageFormat);
-				detail::ApplyArgs(formatter, args...);
-				return str(formatter);
+				try
+				{
+					boost::format formatter(messageFormat);
+					detail::ApplyArgs(formatter, args...);
+					return str(formatter);
+				}
+				catch (boost::io::format_error& ex)
+				{
+					std::cerr << ">>>> Error encountered while formatting string for phere::debug::Logger : ";
+					std::cerr << boost::current_exception_diagnostic_information() << std::endl;
+				}
+				return "";
 			}
 		};
 		
@@ -99,25 +110,25 @@ namespace phere {
 			}
 			
 			template <typename ... Args>
-			void Trace(const char* messageFormat, Args ... args)
+			void Traces(std::string messageFormat, Args ... args)
 			{
 				Log<MessageLevel::Trace>(messageFormat, args...);
 			}
 			
 			template <typename ... Args>
-			void Message(const char* messageFormat, Args ... args)
+			void Message(std::string messageFormat, Args ... args)
 			{
 				Log<MessageLevel::Message>(messageFormat, args...);
 			}
 			
 			template <typename ... Args>
-			void Warning(const char* messageFormat, Args ... args)
+			void Warning(std::string messageFormat, Args ... args)
 			{
 				Log<MessageLevel::Warning>(messageFormat, args...);
 			}
 			
 			template <typename ... Args>
-			void Error(const char* messageFormat, Args ... args)
+			void Error(std::string messageFormat, Args ... args)
 			{
 				Log<MessageLevel::Error>(messageFormat, args...);
 			}
@@ -132,7 +143,7 @@ namespace phere {
 			template
 			< typename Level
 			, typename ... Args >
-			void Log(const char* messageFormat, Args ... args)
+			void Log(std::string messageFormat, Args ... args)
 			{
 				if (ShouldShowLevel<Level>())
 				{

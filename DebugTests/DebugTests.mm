@@ -42,6 +42,9 @@ DefineLogger(DebugTests)
 	logger.Warning("%1% parameter", "one");
 	logger.Warning("%1% parameter", std::string("one"));
 	logger.Warning("%1% %2%", 2, @"parameters");
+	logger.Warning("invalid parameter %1", 0);
+	logger.Warning("too few arguments %1%");
+	logger.Warning("too many arguments", 0);
 }
 
 @end
