@@ -1,0 +1,69 @@
+message Message {
+	message Header {
+		message Priority {
+			enum Facility {
+			     kernel = 0;
+			     user = 1;
+			     mail = 2;
+			     system = 3;
+			     security_auth1 = 4;
+			     syslogd = 5;
+			     lpd = 6;
+			     news = 7;
+			     uucp = 8;
+			     clock = 9;
+			     security_auth2 = 10;
+			     ftpd = 11;
+			     ntp = 12;
+			     audit = 13;
+			     alert = 14;
+			     clockd = 15;
+			     local0 = 16;
+			     local1 = 17;
+			     local2 = 18;
+			     local3 = 19;
+			     local4 = 20;
+			     local5 = 21;
+			     local6 = 22;
+			     local7 = 23;
+			}
+			optional Facility facility = 1;
+
+			enum Severity {
+			     EMERGENCY = 0;
+			     ALERT = 1;
+			     CRITICAL = 2;
+			     ERROR = 3;
+			     WARNING = 4;
+			     NOTICE = 5;
+			     INFORMATIONAL = 6;
+			     DEBUG = 7;
+			}
+			required Severity severity = 2;
+		}
+		required Priority priority = 1;
+
+		message Timestamp {
+			required string date = 1;
+			required string time = 2;
+		}
+		optional Timestamp timestamp = 2;
+		optional string hostname = 3;
+		optional string appname = 4;
+		optional string procid = 5;
+		optional string msgid = 6;
+	}
+
+	message StructuredData {
+		required string id = 1;
+		message StructuredDataParameter {
+			required string name = 1;
+			required string value = 2;
+		}
+		repeated StructuredDataParameter params = 2;
+	}
+
+	required Header header = 1;
+	optional StructuredData structuredData = 2;
+	optional string message = 3;
+}
