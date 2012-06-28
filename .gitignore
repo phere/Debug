@@ -2,3 +2,5 @@
 Jamroot
 boost/
 libs/
+.DS_Store
+boost
