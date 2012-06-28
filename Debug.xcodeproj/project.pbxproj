@@ -15,16 +15,10 @@
 		4A86BC86153AA2A1004024B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A86BC84153AA2A1004024B7 /* InfoPlist.strings */; };
 		4A86BC89153AA2A1004024B7 /* DebugTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC88153AA2A1004024B7 /* DebugTests.mm */; };
 		4A86BCA2153AA322004024B7 /* Assert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC93153AA322004024B7 /* Assert.cpp */; };
-		4A86BCA3153AA322004024B7 /* Assert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC94153AA322004024B7 /* Assert.hpp */; };
 		4A86BCA4153AA322004024B7 /* Break.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC95153AA322004024B7 /* Break.cpp */; };
-		4A86BCA5153AA322004024B7 /* Break.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC96153AA322004024B7 /* Break.hpp */; };
 		4A86BCA6153AA322004024B7 /* Logger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC97153AA322004024B7 /* Logger.mm */; };
-		4A86BCA7153AA322004024B7 /* Logger.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC98153AA322004024B7 /* Logger.hpp */; };
-		4A86BCAC153AA322004024B7 /* Debug-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC9D153AA322004024B7 /* Debug-Prefix.pch */; };
-		4A86BCAD153AA322004024B7 /* Debug.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BC9E153AA322004024B7 /* Debug.hpp */; };
 		4A86BCAE153AA322004024B7 /* Debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BC9F153AA322004024B7 /* Debug.cpp */; };
 		4A86BCB3153AB08C004024B7 /* ConsoleWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BCB1153AB08C004024B7 /* ConsoleWriter.cpp */; };
-		4A86BCB4153AB08C004024B7 /* ConsoleWriter.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4A86BCB2153AB08C004024B7 /* ConsoleWriter.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,12 +168,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A86BCA3153AA322004024B7 /* Assert.hpp in Headers */,
-				4A86BCA5153AA322004024B7 /* Break.hpp in Headers */,
-				4A86BCA7153AA322004024B7 /* Logger.hpp in Headers */,
-				4A86BCAC153AA322004024B7 /* Debug-Prefix.pch in Headers */,
-				4A86BCAD153AA322004024B7 /* Debug.hpp in Headers */,
-				4A86BCB4153AB08C004024B7 /* ConsoleWriter.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
