@@ -10,6 +10,7 @@
 #include "Debug.hpp"
 
 #import <sys/sysctl.h>
+#import <unistd.h>
 
 namespace phere {
 	namespace debug {
