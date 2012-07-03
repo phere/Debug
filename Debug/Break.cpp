@@ -17,6 +17,7 @@
 #ifdef _DEBUG_BREAK_PTHREAD
 #import <pthread.h>
 #endif
+#import <unistd.h>
 
 #if !defined(__x86_64__) && !defined(__i386__) && !defined(__ppc__) && \
 	!defined(_DEBUG_BREAK_PTHREAD) && !(defined(__GNUC__) && !defined(__STDC__))
