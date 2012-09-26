@@ -6,6 +6,8 @@
 //  Copyright 2012 Phere Development. All rights reserved.
 //
 
+#ifndef PHERE_DEBUG_BREAK_HPP
+#define PHERE_DEBUG_BREAK_HPP
 
 // -------------------
 // Define DebugBreak()
@@ -17,3 +19,5 @@ namespace phere { namespace debug {
 	void _DebugBreak() __attribute__((weak));
 }}
 #define DebugBreak() ::phere::debug::_DebugBreak();
+
+#endif

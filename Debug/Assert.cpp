@@ -7,15 +7,15 @@
 //
 
 // this class' header
-#import "Assert.hpp"
+#include "Assert.hpp"
 
 // other headers within the project
 
 // system and library headers
-#import "Break.hpp"
-#import "Debug.hpp"
-#import "Logger.hpp"
-#import "ConsoleWriter.hpp"
+#include "Break.hpp"
+#include "Debug.hpp"
+#include "Logger.hpp"
+#include "ConsoleWriter.hpp"
 
 //-----------------------------------------------------------------------------
 // static code and helpers

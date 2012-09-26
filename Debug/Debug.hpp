@@ -7,9 +7,12 @@
  *
  */
 
-#import <string>
-#import <ostream>
-#import <cxxabi.h>
+#ifndef PHERE_DEBUG_DEBUG_HPP
+#define PHERE_DEBUG_DEBUG_HPP
+
+#include <string>
+#include <ostream>
+#include <cxxabi.h>
 
 namespace phere {
 	namespace debug {
@@ -34,3 +37,5 @@ namespace phere {
 }
 
 #define TypeName(x) phere::debug::PrettyTypeName<x>()
+
+#endif

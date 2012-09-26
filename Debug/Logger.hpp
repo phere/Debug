@@ -7,13 +7,16 @@
  *
  */
 
-#import <string>
-#import <iostream>
-#import <utility>
-#import <boost/noncopyable.hpp>
-#import <boost/smart_ptr/shared_ptr.hpp>
-#import <boost/format.hpp>
-#import <boost/exception/diagnostic_information.hpp>
+#ifndef PHERE_DEBUG_LOGGER_HPP
+#define PHERE_DEBUG_LOGGER_HPP
+
+#include <string>
+#include <iostream>
+#include <utility>
+#include <boost/noncopyable.hpp>
+#include <boost/smart_ptr/shared_ptr.hpp>
+#include <boost/format.hpp>
+#include <boost/exception/diagnostic_information.hpp>
 
 #ifdef __OBJC__
 @class NSObject;
@@ -36,7 +39,7 @@ namespace phere {
 			// maximum possible level, the threshold for null loggers
 			struct MAX
 			{
-				static const int value = INT_MAX;
+			  static const int value = std::numeric_limits<int>::max();
 			};
 		};
 		
@@ -98,7 +101,7 @@ namespace phere {
 			Logger(const std::string& _name)
 			: messagePrefix(_name)
 			{
-				const int PREFIX_LENGTH = 13;
+				const size_t PREFIX_LENGTH = 13;
 				// too short, add spaces
 				if (messagePrefix.length() < PREFIX_LENGTH)
 				{
@@ -172,3 +175,5 @@ namespace { \
 	struct logger_name##_tag{}; \
 	phere::debug::Logger< phere::debug::ChannelWriter, phere::debug::MessageLevel::MAX > logger(#logger_name); \
 }
+
+#endif

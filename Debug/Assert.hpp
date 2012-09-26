@@ -6,6 +6,9 @@
 //  Copyright 2012 Asdeq Labs. All rights reserved.
 //
 
+#ifndef PHERE_DEBUG_ASSERT_HPP
+#define PHERE_DEBUG_ASSERT_HPP
+
 /*
  Define macros for testing precondition and postcondition violations.
  
@@ -82,8 +85,8 @@ namespace boost {
 /////////
 // Now that the preprocessor is correctly configured, include the
 // library definitions
-#import <boost/assert.hpp>
-#import <cassert>
+#include <boost/assert.hpp>
+#include <cassert>
 // don't use the default 'assert'
 #undef assert
 
@@ -97,3 +100,5 @@ namespace boost {
 #define ASSERT_MSG	BOOST_ASSERT_MSG
 // VERIFY(expr);
 #define VERIFY BOOST_VERIFY
+
+#endif

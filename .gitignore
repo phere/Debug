@@ -4,3 +4,4 @@ boost/
 libs/
 .DS_Store
 boost
+bin/

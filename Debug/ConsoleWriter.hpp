@@ -6,7 +6,10 @@
 //  Copyright 2012 Phere Development Pty. Ltd. All rights reserved.
 //
 
-#import <string>
+#ifndef PHERE_DEBUG_CONSOLEWRITER_HPP
+#define PHERE_DEBUG_CONSOLEWRITER_HPP
+
+#include <string>
 
 struct ConsoleWriter
 {
@@ -19,3 +22,5 @@ namespace { \
 struct logger_name##_tag{}; \
 phere::debug::Logger< ConsoleWriter > logger(#logger_name);\
 }
+
+#endif

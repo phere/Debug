@@ -7,21 +7,21 @@
 //
 
 // this class' header
-#import "Break.hpp"
+#include "Break.hpp"
 
 // other headers in this library
-#import "Debug.hpp"
+#include "Debug.hpp"
 
 
 //#define _DEBUG_BREAK_PTHREAD
 #ifdef _DEBUG_BREAK_PTHREAD
-#import <pthread.h>
+#include <pthread.h>
 #endif
-#import <unistd.h>
+#include <unistd.h>
 
 #if !defined(__x86_64__) && !defined(__i386__) && !defined(__ppc__) && \
 	!defined(_DEBUG_BREAK_PTHREAD) && !(defined(__GNUC__) && !defined(__STDC__))
-#import <signal.h>
+#include <signal.h>
 #endif
 
 #define _DEBUG_BREAK_ARM_SWI_IMPL \

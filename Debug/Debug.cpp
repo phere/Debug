@@ -9,8 +9,9 @@
 
 #include "Debug.hpp"
 
-#import <sys/sysctl.h>
-#import <unistd.h>
+#ifdef __APPLE__
+#include <sys/sysctl.h>
+#include <unistd.h>
 
 namespace phere {
 	namespace debug {
@@ -33,3 +34,4 @@ namespace phere {
 		}
 	}
 }
+#endif

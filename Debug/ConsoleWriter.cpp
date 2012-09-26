@@ -7,15 +7,15 @@
 //
 
 // this class' header
-#import "ConsoleWriter.hpp"
+#include "ConsoleWriter.hpp"
 
 // other headers within the project
-#import "Logger.hpp"
+#include "Logger.hpp"
 
 // system and library headers
-#import <boost/thread/mutex.hpp>
-#import <boost/thread/locks.hpp>
-#import <iostream>
+#include <boost/thread/mutex.hpp>
+#include <boost/thread/locks.hpp>
+#include <iostream>
 
 //-----------------------------------------------------------------------------
 // static code and helpers
