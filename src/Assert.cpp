@@ -7,15 +7,15 @@
 //
 
 // this class' header
-#include "Assert.hpp"
+#include "phere/Assert.hpp"
 
 // other headers within the project
 
 // system and library headers
-#include "Break.hpp"
-#include "Debug.hpp"
-#include "Logger.hpp"
-#include "ConsoleWriter.hpp"
+#include "phere/Break.hpp"
+#include "phere/Debug.hpp"
+#include "phere/Logger.hpp"
+#include "phere/ConsoleWriter.hpp"
 
 //-----------------------------------------------------------------------------
 // static code and helpers

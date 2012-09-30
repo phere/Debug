@@ -1,0 +1,8 @@
+project
+	: requirements <include>. <cxxflags>-std=c++11
+	: usage-requirements <include>. <cxxflags>-std=c++11
+	;
+
+lib Debug
+    : [ glob src/*.cpp ] /phere/Format//Format
+    ;

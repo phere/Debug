@@ -7,10 +7,10 @@
 //
 
 // this class' header
-#include "ConsoleWriter.hpp"
+#include "phere/ConsoleWriter.hpp"
 
 // other headers within the project
-#include "Logger.hpp"
+#include "phere/Logger.hpp"
 
 // system and library headers
 #include <boost/thread/mutex.hpp>

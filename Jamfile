@@ -1,9 +1,0 @@
-project
-	: usage-requirements <include>.
-	;
-
-lib Debug
-    : [ glob *.cpp ]
-    :
-    : <cxxflags>-std=c++11
-    ;

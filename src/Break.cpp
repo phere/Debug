@@ -7,10 +7,10 @@
 //
 
 // this class' header
-#include "Break.hpp"
+#include "phere/Break.hpp"
 
 // other headers in this library
-#include "Debug.hpp"
+#include "phere/Debug.hpp"
 
 
 //#define _DEBUG_BREAK_PTHREAD

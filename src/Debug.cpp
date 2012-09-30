@@ -7,7 +7,7 @@
  *
  */
 
-#include "Debug.hpp"
+#include "phere/Debug.hpp"
 
 #ifdef __APPLE__
 #include <sys/sysctl.h>
