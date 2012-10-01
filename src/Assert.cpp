@@ -14,8 +14,8 @@
 // system and library headers
 #include "phere/Break.hpp"
 #include "phere/Debug.hpp"
-#include "phere/Logger.hpp"
-#include "phere/ConsoleWriter.hpp"
+//#include "phere/Logger/Logger.hpp"
+#include "phere/Logger/Console.hpp"
 
 //-----------------------------------------------------------------------------
 // static code and helpers
@@ -28,7 +28,7 @@ namespace boost {
 						  long 			line)
 	{
 		logger.Error("%1%:%2% %3% %4%", file, line, function, expr);
-		DebugBreak();
+		phere::Debug::debugBreak();
 	}
 	void assertion_failed_msg(char const*	expr,
 							  char const*	msg,
@@ -37,6 +37,6 @@ namespace boost {
 							  long 			line)
 	{
 		logger.Error("%1%:%2% %3% %4% \"%5%\"", file, line, function, expr, msg);
-		DebugBreak();
+		phere::Debug::debugBreak();
 	}
 }

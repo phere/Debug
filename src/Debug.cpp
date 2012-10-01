@@ -15,7 +15,7 @@
 #endif
 
 namespace phere {
-  namespace debug {
+  namespace Debug {
     bool IsDebugging() {
       static bool result(detail::IsDebugging());
       return result;
@@ -34,10 +34,10 @@ namespace phere {
 	return (info.kp_proc.p_flag & P_TRACED) != 0;
       }
 #else
-      bool isDebugging() {
+      bool IsDebugging() {
 	return false;
       }
 #endif
     }
-  }
-}
+  } // namespace Debug
+} // namespace phere

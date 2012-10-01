@@ -40,9 +40,9 @@ do { \
 } while(0)
 
 namespace phere {
-	namespace debug {
-		void _DebugBreak() {
-			if (phere::debug::IsDebugging()) {
+	namespace Debug {
+		void debugBreak() {
+			if (phere::Debug::IsDebugging()) {
 #if defined(__x86_64__) || defined(__i386__)
 				// resumable x86 interrupt (doesn't show in stack)
 				asm volatile("int $3\nnop");
@@ -78,7 +78,7 @@ namespace phere {
 #endif
 			} // if IsDebugging()
 		} // _DebugBreak()
-	} // namespace debug
+	} // namespace Debug
 } // namespace phere
 
 #undef _DEBUG_BREAK_ARM_SWI_IMPL

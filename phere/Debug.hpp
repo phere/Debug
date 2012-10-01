@@ -15,7 +15,7 @@
 #include <cxxabi.h>
 
 namespace phere {
-	namespace debug {
+	namespace Debug {
 		template<typename T>
 		std::string PrettyTypeName() {
 			char* pszName;
@@ -35,7 +35,5 @@ namespace phere {
 		bool IsDebugging(); // caches result of first call to detail::IsDebugging()
 	}
 }
-
-#define TypeName(x) phere::debug::PrettyTypeName<x>()
 
 #endif

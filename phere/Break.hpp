@@ -15,9 +15,8 @@
 // This should create a re-usable way to break into the debugger from software
 // the option given provides a trade-off between being generally reliable and
 // reasonably portable.
-namespace phere { namespace debug {
-	void _DebugBreak() __attribute__((weak));
+namespace phere { namespace Debug {
+	void debugBreak();
 }}
-#define DebugBreak() ::phere::debug::_DebugBreak();
 
 #endif

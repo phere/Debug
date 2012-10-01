@@ -4,5 +4,7 @@ project
 	;
 
 lib Debug
-    : [ glob src/*.cpp ] /phere/Format//Format
+    : /phere/Format//Format
+	[ glob src/*.cpp ]
+	[ glob src/Logger/*.cpp ]
     ;
