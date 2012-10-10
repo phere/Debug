@@ -17,29 +17,19 @@
 #include <boost/smart_ptr/shared_ptr.hpp>
 #include <boost/exception/diagnostic_information.hpp>
 
-#include "phere/Format.hpp"
+#include <phere/Format.hpp>
 
 namespace phere {
   namespace Debug {
     struct MessageLevel
     {
-      template <const int _value> struct MessageLevel_type
-      {
-		static const int value = _value;
-      };
-      typedef MessageLevel_type<-1> Trace;
-      typedef MessageLevel_type< 0> Message;
-      typedef MessageLevel_type< 1> Warning;
-      typedef MessageLevel_type< 2> Error;
-
-      // maximum possible level, the threshold for null loggers
-      struct MAX
-      {
-		static const int value = std::numeric_limits<int>::max();
-      };
+	  struct Trace { static const int value = -1; };
+	  struct Message { static const int value = 0; };
+	  struct Warning { static const int value = 1; };
+	  struct Error { static const int value = 2; };
     };
-		
-    struct ChannelWriter
+
+    struct NullWriter
     {
       template < typename Level >
       static void write(std::string const& message) {}
@@ -47,9 +37,10 @@ namespace phere {
 
 	namespace Logger {
 	  template
-	  < typename Writer = ChannelWriter
+	  < typename Writer = NullWriter
 		, typename Threshold = MessageLevel::Warning >
 	  class Logger
+		: protected boost::noncopyable
 	  {
 	  public:
 		Logger(const std::string& _name)
@@ -71,28 +62,28 @@ namespace phere {
 		}
 			
 		template <typename FormatType, typename ... Args>
-		void Trace(FormatType&& messageFormat, Args&& ... args)
+		void trace(FormatType&& messageFormat, Args&& ... args)
 		{
 		  Log<MessageLevel::Trace>(std::forward<FormatType>(messageFormat),
 								   std::forward<Args>(args)...);
 		}
 			
 		template <typename FormatType, typename ... Args>
-		void Message(FormatType&& messageFormat, Args&& ... args)
+		void message(FormatType&& messageFormat, Args&& ... args)
 		{
 		  Log<MessageLevel::Message>(std::forward<FormatType>(messageFormat),
 									 std::forward<Args>(args)...);
 		}
 			
 		template <typename FormatType, typename ... Args>
-		void Warning(FormatType&& messageFormat, Args&& ... args)
+		void warning(FormatType&& messageFormat, Args&& ... args)
 		{
 		  Log<MessageLevel::Warning>(std::forward<FormatType>(messageFormat),
 									 std::forward<Args>(args)...);
 		}
 			
 		template <typename FormatType, typename ... Args>
-		void Error(FormatType&& messageFormat, Args&& ... args)
+		void error(FormatType&& messageFormat, Args&& ... args)
 		{
 		  Log<MessageLevel::Error>(std::forward<FormatType>(messageFormat),
 								   std::forward<Args>(args)...);

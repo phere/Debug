@@ -27,7 +27,7 @@ namespace boost {
 						  char const*	file,
 						  long 			line)
 	{
-		logger.Error("%1%:%2% %3% %4%", file, line, function, expr);
+		logger.error("%1%:%2% %3% %4%", file, line, function, expr);
 		phere::Debug::debugBreak();
 	}
 	void assertion_failed_msg(char const*	expr,
@@ -36,7 +36,7 @@ namespace boost {
 							  char const*	file,
 							  long 			line)
 	{
-		logger.Error("%1%:%2% %3% %4% \"%5%\"", file, line, function, expr, msg);
+		logger.error("%1%:%2% %3% %4% \"%5%\"", file, line, function, expr, msg);
 		phere::Debug::debugBreak();
 	}
 }

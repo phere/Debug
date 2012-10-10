@@ -1,0 +1,3 @@
+project : requirements <library>/boost/test <library>/phere/Debug ;
+
+unit-test debug : debug.cpp ;

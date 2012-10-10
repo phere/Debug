@@ -21,12 +21,6 @@
 // static code and helpers
 namespace {
   boost::mutex consoleMutex;
-	
-  void lockedWrite(const std::string& message)
-  {
-	boost::unique_lock<boost::mutex> consoleLock(consoleMutex);
-	std::cerr << message << std::endl;
-  }
 }
 
 //-----------------------------------------------------------------------------
@@ -38,25 +32,29 @@ namespace phere {
 	  void Console::write
 	  <phere::Debug::MessageLevel::Trace>(std::string const& message)
 	  {
-		lockedWrite(message);
+		boost::unique_lock<boost::mutex> consoleLock(consoleMutex);
+		std::cerr << " --  " << message << std::endl;
 	  }
 	  template <>
 	  void Console::write
 	  <phere::Debug::MessageLevel::Message>(std::string const& message)
 	  {
-		lockedWrite(message);
+		boost::unique_lock<boost::mutex> consoleLock(consoleMutex);
+		std::cerr << "(mm) " << message << std::endl;
 	  }
 	  template <>
 	  void Console::write
 	  <phere::Debug::MessageLevel::Warning>(std::string const& message)
 	  {
-		lockedWrite(message);
+		boost::unique_lock<boost::mutex> consoleLock(consoleMutex);
+		std::cerr << "(WW) " << message << std::endl;
 	  }
 	  template <>
 	  void Console::write
 	  <phere::Debug::MessageLevel::Error>(std::string const& message)
 	  {
-		lockedWrite(message);
+		boost::unique_lock<boost::mutex> consoleLock(consoleMutex);
+		std::cerr << "(EE) " << message << std::endl;
 	  }
 	} // namespace Logger
   } // namespace Debug
