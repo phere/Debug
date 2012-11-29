@@ -59,3 +59,8 @@ namespace phere {
 	} // namespace Logger
   } // namespace Debug
 } // namespace phere
+
+template void phere::Debug::Logger::Console::write<phere::Debug::MessageLevel::Trace>(std::string const&);
+template void phere::Debug::Logger::Console::write<phere::Debug::MessageLevel::Message>(std::string const&);
+template void phere::Debug::Logger::Console::write<phere::Debug::MessageLevel::Warning>(std::string const&);
+template void phere::Debug::Logger::Console::write<phere::Debug::MessageLevel::Error>(std::string const&);
