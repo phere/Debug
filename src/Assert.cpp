@@ -14,12 +14,14 @@
 // system and library headers
 #include "phere/Break.hpp"
 #include "phere/Debug.hpp"
-//#include "phere/Logger/Logger.hpp"
 #include "phere/Logger/Console.hpp"
 
 //-----------------------------------------------------------------------------
 // static code and helpers
-DefineLogger(ASSERT_FAILED);
+namespace {
+  phere::Debug::Logger::Logger
+  <phere::Debug::Logger::Console> logger("ASSERT");
+}
 
 namespace boost {
 	void assertion_failed(char const*	expr,

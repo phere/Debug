@@ -26,9 +26,4 @@ namespace phere
   } // namespace Debug
 } // namespace phere
 
-#define DefineLogger(logger_name) \
-  namespace { \
-	phere::Debug::Logger::Logger \
-	< phere::Debug::Logger::Console > logger(#logger_name); \
-  }
 #endif
