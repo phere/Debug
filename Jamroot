@@ -4,7 +4,7 @@ project
 	;
 
 lib Debug
-    : /phere/Format//Format /boost//headers
+    : Format /boost//headers /boost//system
 	[ glob src/*.cpp ]
 	[ glob src/Logger/*.cpp ]
     ;
