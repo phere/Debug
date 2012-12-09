@@ -7,10 +7,10 @@
 //
 
 // this class' header
-#include "phere/Logger/Console.hpp"
+#include "phere/Console.hpp"
 
 // other headers within the project
-#include "phere/Logger/Logger.hpp"
+#include "phere/Logger.hpp"
 
 // system and library headers
 #include <boost/thread/mutex.hpp>
@@ -27,40 +27,38 @@ namespace {
 // Console class implementation
 namespace phere {
   namespace Debug {
-	namespace Logger {
-	  template <>
-	  void Console::write
-	  <phere::Debug::MessageLevel::Trace>(std::string const& message)
-	  {
-		boost::unique_lock<boost::mutex> consoleLock(consoleMutex);
-		std::cerr << " --  " << message << std::endl;
-	  }
-	  template <>
-	  void Console::write
-	  <phere::Debug::MessageLevel::Message>(std::string const& message)
-	  {
-		boost::unique_lock<boost::mutex> consoleLock(consoleMutex);
-		std::cerr << "(mm) " << message << std::endl;
-	  }
-	  template <>
-	  void Console::write
-	  <phere::Debug::MessageLevel::Warning>(std::string const& message)
-	  {
-		boost::unique_lock<boost::mutex> consoleLock(consoleMutex);
-		std::cerr << "(WW) " << message << std::endl;
-	  }
-	  template <>
-	  void Console::write
-	  <phere::Debug::MessageLevel::Error>(std::string const& message)
-	  {
-		boost::unique_lock<boost::mutex> consoleLock(consoleMutex);
-		std::cerr << "(EE) " << message << std::endl;
-	  }
-	} // namespace Logger
+	template <>
+	void Console::write
+	<phere::Debug::MessageLevel::Trace>(std::string const& message)
+	{
+	  boost::unique_lock<boost::mutex> consoleLock(consoleMutex);
+	  std::cerr << " --  " << message << std::endl;
+	}
+	template <>
+	void Console::write
+	<phere::Debug::MessageLevel::Message>(std::string const& message)
+	{
+	  boost::unique_lock<boost::mutex> consoleLock(consoleMutex);
+	  std::cerr << "(mm) " << message << std::endl;
+	}
+	template <>
+	void Console::write
+	<phere::Debug::MessageLevel::Warning>(std::string const& message)
+	{
+	  boost::unique_lock<boost::mutex> consoleLock(consoleMutex);
+	  std::cerr << "(WW) " << message << std::endl;
+	}
+	template <>
+	void Console::write
+	<phere::Debug::MessageLevel::Error>(std::string const& message)
+	{
+	  boost::unique_lock<boost::mutex> consoleLock(consoleMutex);
+	  std::cerr << "(EE) " << message << std::endl;
+	}
   } // namespace Debug
 } // namespace phere
 
-template void phere::Debug::Logger::Console::write<phere::Debug::MessageLevel::Trace>(std::string const&);
-template void phere::Debug::Logger::Console::write<phere::Debug::MessageLevel::Message>(std::string const&);
-template void phere::Debug::Logger::Console::write<phere::Debug::MessageLevel::Warning>(std::string const&);
-template void phere::Debug::Logger::Console::write<phere::Debug::MessageLevel::Error>(std::string const&);
+template void phere::Debug::Console::write<phere::Debug::MessageLevel::Trace>(std::string const&);
+template void phere::Debug::Console::write<phere::Debug::MessageLevel::Message>(std::string const&);
+template void phere::Debug::Console::write<phere::Debug::MessageLevel::Warning>(std::string const&);
+template void phere::Debug::Console::write<phere::Debug::MessageLevel::Error>(std::string const&);

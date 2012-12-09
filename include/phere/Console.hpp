@@ -9,20 +9,17 @@
 #ifndef PHERE_DEBUG_LOGGER_CONSOLE_HPP
 #define PHERE_DEBUG_LOGGER_CONSOLE_HPP
 
-#include "phere/Logger/Logger.hpp"
+#include "phere/Logger.hpp"
 
 namespace phere
 {
   namespace Debug
   {
-	namespace Logger
+	struct Console
 	{
-	  struct Console
-	  {
-		template < typename Level >
-		static void write(std::string const& message);
-	  };
-	} // namespace Logger
+	  template < typename Level >
+	  static void write(std::string const& message);
+	};
   } // namespace Debug
 } // namespace phere
 

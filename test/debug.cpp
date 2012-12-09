@@ -1,12 +1,12 @@
 #define BOOST_TEST_MODULE Debug
 #include <boost/test/unit_test.hpp>
 
-#include <phere/Logger/Logger.hpp>
-#include <phere/Logger/Console.hpp>
+#include <phere/Logger.hpp>
+#include <phere/Console.hpp>
 
 BOOST_AUTO_TEST_CASE( usage )
 {
-  phere::Debug::Logger::Logger<> logger("usage");
+  phere::Debug::Logger<> logger("usage");
   logger.trace("Trace message");
   logger.trace("Trace message (%1%)", "parameter");
   logger.message("General message");
@@ -16,9 +16,8 @@ BOOST_AUTO_TEST_CASE( usage )
 
 BOOST_AUTO_TEST_CASE( output )
 {
-  phere::Debug::Logger::Logger
-	<phere::Debug::Logger::Console,
-	 phere::Debug::MessageLevel::Trace> logger("output");
+  phere::Debug::Logger
+	<phere::Debug::Console> logger("output");
   logger.trace("Trace message");
   logger.trace("Trace message (%1%)", "parameter");
   logger.message("General message");

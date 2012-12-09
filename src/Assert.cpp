@@ -14,13 +14,13 @@
 // system and library headers
 #include "phere/Break.hpp"
 #include "phere/Debug.hpp"
-#include "phere/Logger/Console.hpp"
+#include "phere/Console.hpp"
 
 //-----------------------------------------------------------------------------
 // static code and helpers
 namespace {
-  phere::Debug::Logger::Logger
-  <phere::Debug::Logger::Console> logger("ASSERT");
+  phere::Debug::Logger
+  <phere::Debug::Console> logger("ASSERT");
 }
 
 namespace boost {
