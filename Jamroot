@@ -1,10 +1,9 @@
 project
-	: requirements <include>. <cxxflags>-std=c++11
-	: usage-requirements <include>. <cxxflags>-std=c++11
+	: requirements <include>include
+	: usage-requirements <include>include
 	;
 
 lib Debug
     : Format /boost//headers /boost//system
 	[ glob src/*.cpp ]
-	[ glob src/Logger/*.cpp ]
     ;
