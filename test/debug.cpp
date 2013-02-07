@@ -2,25 +2,13 @@
 #include <boost/test/unit_test.hpp>
 
 #include <phere/Logger.hpp>
-#include <phere/Console.hpp>
+#include <phere/ConsoleWriter.hpp>
 
 BOOST_AUTO_TEST_CASE( usage )
 {
-  phere::Debug::Logger<> logger("usage");
-  logger.trace("Trace message");
-  logger.trace("Trace message (%1%)", "parameter");
-  logger.message("General message");
-  logger.warning("Warning message");
-  logger.error("Error message");
-}
-
-BOOST_AUTO_TEST_CASE( output )
-{
-  phere::Debug::Logger
-	<phere::Debug::Console> logger("output");
-  logger.trace("Trace message");
-  logger.trace("Trace message (%1%)", "parameter");
-  logger.message("General message");
-  logger.warning("Warning message");
-  logger.error("Error message");
+  phere::Logger logger("usage");
+  logger.debug("debug message");
+  logger.info("info message (%1%)", "parameter");
+  logger.warning("warning message");
+  logger.error("error message");
 }

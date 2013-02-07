@@ -1,3 +1,5 @@
 project : requirements <library>/boost/test <library>..//Debug ;
 
 unit-test debug : debug.cpp ;
+
+alias all : debug ;

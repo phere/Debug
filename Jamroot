@@ -4,6 +4,12 @@ project
 	;
 
 lib Debug
-    : Format /boost//headers /boost//system
+    : Format
+      /boost//headers
+      /boost//system
 	[ glob src/*.cpp ]
     ;
+
+alias test : test//all ;
+
+alias all : Debug test ;
