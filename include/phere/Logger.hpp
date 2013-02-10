@@ -54,8 +54,8 @@ namespace phere {
 	void write(Format&& format, Args&& ... args) const
 	{
 	  phere::Message message(severity,
-							 phere::Format::format(std::forward<Format>(format),
-												   std::forward<Args>(args)...));
+							 phere::format(std::forward<Format>(format),
+										   std::forward<Args>(args)...));
 
 	  LogWriter::get().write(*this, message);
 	}
