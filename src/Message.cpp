@@ -10,6 +10,7 @@
 #include "phere/Message.hpp"
 
 // other headers within the project
+#include "phere/Logger.hpp"
 
 // system and library headers
 
@@ -19,30 +20,17 @@
 //-----------------------------------------------------------------------------
 // Console class implementation
 namespace phere {
-  Message::Message(std::string message_)
-	: facility(Facility::user)
-	, severity(Severity::debug)
-	, message(message)
-  {}
-
-  Message::Message(Message::Severity severity_,
-				   std::string message_)
-	: facility(Facility::user)
-	, severity(severity_)
-	, message(message_)
-  {}
-
-  Message::Message(Message::Facility facility_,
+  Message::Message(Logger const& logger,
 				   Message::Severity severity_,
 				   std::string message_)
-	: facility(facility_)
+	: logger_name(logger.get_name())
 	, severity(severity_)
 	, message(message_)
   {}
 
-  Message::Facility Message::get_facility() const
+  std::string Message::get_logger_name() const
   {
-	return facility;
+	return logger_name;
   }
 
   Message::Severity Message::get_severity() const
@@ -53,10 +41,5 @@ namespace phere {
   std::string Message::get_message() const
   {
 	return message;
-  }
-
-  uint8_t Message::get_priority() const
-  {
-	return facility * 8 + severity;
   }
 } // namespace phere

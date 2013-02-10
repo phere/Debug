@@ -20,7 +20,7 @@ namespace phere
 	ConsoleWriter();
 
   private:
-	void write_message(Message const& message) const;
+	void write(Message const& message) const;
   };
 } // namespace phere
 

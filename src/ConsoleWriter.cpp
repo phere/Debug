@@ -10,13 +10,13 @@
 #include "phere/ConsoleWriter.hpp"
 
 // other headers within the project
-#include "phere/Logger.hpp"
 #include "phere/Message.hpp"
 
 // system and library headers
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/locks.hpp>
 #include <iostream>
+#include <sstream>
 
 //-----------------------------------------------------------------------------
 // static code and helpers
@@ -30,9 +30,17 @@ namespace phere {
   ConsoleWriter::ConsoleWriter()
   {}
 
-  void ConsoleWriter::write_message(Message const& message) const
+  void ConsoleWriter::write(Message const& message) const
   {
+	std::ostringstream os;
+	os << message.get_severity();
+	os << "\t";
+	os << message.get_logger_name();
+	os << "\t";
+	os << message.get_message();
+	{
 	  boost::unique_lock<boost::mutex> consoleLock(consoleMutex);
-	  std::cerr << message.get_message() << std::endl;
+	  std::cerr << os.str() << std::endl;
+	}
   }
 } // namespace phere

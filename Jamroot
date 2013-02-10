@@ -7,6 +7,7 @@ lib Debug
     : Format
       /boost//headers
       /boost//system
+	  /boost//thread
 	[ glob src/*.cpp ]
     ;
 

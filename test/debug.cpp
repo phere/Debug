@@ -2,7 +2,30 @@
 #include <boost/test/unit_test.hpp>
 
 #include <phere/Logger.hpp>
+#include <phere/LogWriters.hpp>
 #include <phere/ConsoleWriter.hpp>
+
+namespace
+{
+  struct LogWriterInit
+  {
+	phere::ConsoleWriter* logWriter;
+	LogWriterInit()
+	  : logWriter(NULL)
+	{
+	  logWriter = new phere::ConsoleWriter();
+	  phere::LogWriters::add(logWriter);
+	}
+
+	~LogWriterInit()
+	{
+	  phere::LogWriters::remove(logWriter);
+	  logWriter = NULL;
+	}
+  };
+}
+
+BOOST_GLOBAL_FIXTURE( LogWriterInit );
 
 BOOST_AUTO_TEST_CASE( usage )
 {

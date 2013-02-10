@@ -16,7 +16,7 @@
 
 #include <phere/Format.hpp>
 #include <phere/Message.hpp>
-#include <phere/LogWriter.hpp>
+#include <phere/LogWriters.hpp>
 
 namespace phere {
   class Logger
@@ -27,13 +27,17 @@ namespace phere {
 
 	std::string get_name() const;
 
-#define DefineSeverityLogger(severity)\
-	template <typename Format,\
-			  typename ... Args>\
-	void severity(Format&& format, Args&& ... args) const\
-	{\
-	  write<Message::Severity::severity>(std::forward<Format>(format),\
-										 std::forward<Args>(args)...);\
+#define DefineSeverityLogger(severity)									\
+	template <typename Format,											\
+			  typename ... Args>										\
+	void severity(Format&& format, Args&& ... args) const				\
+	{																	\
+	  phere::Message::Severity s = phere::Message::severity;			\
+	  phere::Message message(*this,										\
+							 s,											\
+							 phere::format(std::forward<Format>(format), \
+										   std::forward<Args>(args)...)); \
+	  LogWriters::write_all(message);									\
 	}
 
 	DefineSeverityLogger(debug);
@@ -48,18 +52,6 @@ namespace phere {
 #undef DefineSeverityLogger
 
   private:
-	template <Message::Severity severity,
-			  typename Format,
-			  typename ... Args>
-	void write(Format&& format, Args&& ... args) const
-	{
-	  phere::Message message(severity,
-							 phere::format(std::forward<Format>(format),
-										   std::forward<Args>(args)...));
-
-	  LogWriter::get().write(*this, message);
-	}
-
 	std::string name;
   };
 } // namespace phere

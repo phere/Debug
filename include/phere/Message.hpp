@@ -5,6 +5,7 @@
 
 namespace phere
 {
+  class Logger;
   class Message
   {
   public:
@@ -20,51 +21,16 @@ namespace phere
 		emergency,
 	  };
 
-	enum Facility
-	  {
-		kern,
-		user,
-		mail,
-		daemon,
-		auth,
-		syslog,
-		lpr,
-		news,
-		uucp,
-		_9,
-		authpriv,
-		ftp,
-		_12,
-		_13,
-		_14,
-		cron,
-		local0,
-		local1,
-		local2,
-		local3,
-		local4,
-		local5,
-		local6,
-		local7,
-	  };
-
-	Message(std::string message_);
-
-	Message(Severity severity_,
-			std::string message_);
-
-	Message(Facility facility_,
+	Message(Logger const& logger,
 			Severity severity_,
 			std::string message_);
 
-	Facility get_facility() const;
+	std::string get_logger_name() const;
 	Severity get_severity() const;
 	std::string get_message() const;
 
-	uint8_t get_priority() const;
-
   private:
-	Facility facility;
+	std::string logger_name;
 	Severity severity;
 	std::string message;
   };

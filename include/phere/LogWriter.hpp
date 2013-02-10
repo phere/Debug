@@ -10,15 +10,7 @@ namespace phere
   {
   public:
 	virtual ~LogWriter();
-	void write(Logger const& source,
-			   Message const& message) const;
-
-	static LogWriter& get();
-
-  protected:
-	LogWriter();
-
-	virtual void write_message(Message const& message) const;
+	virtual void write(Message const& message) const;
   };
 } // namespace phere
 
