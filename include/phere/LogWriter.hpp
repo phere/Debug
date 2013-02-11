@@ -4,7 +4,6 @@
 namespace phere
 {
   class Message;
-  class Logger;
 
   class LogWriter
   {

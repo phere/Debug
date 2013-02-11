@@ -9,11 +9,11 @@
 
 namespace
 {
-  typedef std::list<phere::LogWriter*> WritersList;
+  typedef std::list<phere::LogWriterPtr> WritersList;
   boost::shared_mutex writersMutex;
   WritersList writers;
 
-  void remove_internal(phere::LogWriter* writer,
+  void remove_internal(phere::LogWriterPtr writer,
 					   boost::unique_lock<boost::shared_mutex>& writersLock)
   {
 	writers.remove(writer);
@@ -32,14 +32,14 @@ namespace phere
 	  }
   }
 
-  void LogWriters::add(LogWriter* writer)
+  void LogWriters::add(LogWriterPtr writer)
   {
 	boost::unique_lock<boost::shared_mutex> writersLock(writersMutex);
 	remove_internal(writer, writersLock);
 	writers.push_back(writer);
   }
 
-  void LogWriters::remove(LogWriter* writer)
+  void LogWriters::remove(LogWriterPtr writer)
   {
 	boost::unique_lock<boost::shared_mutex> writersLock(writersMutex);
 	remove_internal(writer, writersLock);

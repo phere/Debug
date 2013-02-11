@@ -9,11 +9,11 @@ namespace
 {
   struct LogWriterInit
   {
-	phere::ConsoleWriter* logWriter;
+	phere::LogWriterPtr logWriter;
 	LogWriterInit()
 	  : logWriter(NULL)
 	{
-	  logWriter = new phere::ConsoleWriter();
+	  logWriter = std::make_shared<phere::ConsoleWriter>();
 	  phere::LogWriters::add(logWriter);
 	}
 
@@ -63,6 +63,7 @@ BOOST_AUTO_TEST_CASE( custom_types )
 BOOST_AUTO_TEST_CASE( errors )
 {
   phere::Logger logger("errors");
+  logger.notice("ignore error messages from the \"errors\" logger - that's what it's supposed to show");
   logger.debug("not enough arguments %1%");
   logger.debug("too many arguments", 1);
 }
