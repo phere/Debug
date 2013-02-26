@@ -1,13 +1,16 @@
 project
 	: requirements <include>include
-	: usage-requirements <include>include
+	: usage-requirements <include>include <linkflags>-rdynamic
 	;
+
+lib dl : : <name>dl ;
 
 lib Debug
     : Format
       /boost//headers
       /boost//system
 	  /boost//thread
+	  dl
 	[ glob src/*.cpp ]
     ;
 
